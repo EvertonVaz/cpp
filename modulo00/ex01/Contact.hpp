@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 10:41:28 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:29:10 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:09:19 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 #include <iostream>
-
+#include <iostream>
+#include <iomanip>
 class Contact
 {
 	private:
@@ -26,7 +27,6 @@ class Contact
 
 
 	public:
-		Contact 	createContact(void);
 		void		setFirstName(const std::string& firstName);
 		void		setLastName(const std::string& lastName);
 		void		setNickname(const std::string& nickname);

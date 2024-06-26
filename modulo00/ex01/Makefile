@@ -6,11 +6,11 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/06/19 10:38:32 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/06/26 09:58:08 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Megaphone
+NAME = PhoneBook
 FLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 CC = c++
 
@@ -28,7 +28,7 @@ MANDATORY_SOURCES_PATH = ./
 INCLUDES_PATH = ./includes/
 
 SRC = \
-	Megaphone.cpp
+	main.cpp PhoneBook.cpp Contact.cpp\
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SRC:%.cpp=%.o))
 
