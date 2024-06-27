@@ -6,13 +6,14 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:08:47 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 14:38:14 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:47:30 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : currentContactIndex(0), contactsCount(0) {};
+PhoneBook::~PhoneBook() {};
 
 void	PhoneBook::addContact(const Contact& contact) {
 	_contacts[currentContactIndex] = contact;
@@ -27,10 +28,6 @@ static void print(std::string str) {
 	else
 		std::cout << std::setw(10) << str << "|";
 }
-
-/* void	ft_exit(void) {
-	std;
-} */
 
 void	PhoneBook::displayContact(void) const {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:22:19 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 15:35:15 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:53:21 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 std::string	ft_input(std::string msg){
 	std::string	input;
 
-	std::cout << msg;
-	std::getline(std::cin, input);
 	if (std::cin.eof() == 1)
 		return ("");
+	std::cout << msg;
+	std::getline(std::cin, input);
 	if (input == "")
 	{
 		std::cout << RED << "Invalid input" << END << std::endl;
@@ -55,7 +55,6 @@ int main(void)
 			phoneBook.searchContact();
 		else
 			std::cout << RED << "Invalid command" << END << std::endl;
-
 		std::cout << std::endl;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 10:40:37 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 09:05:27 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:47:08 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	PhoneBook {
 
 	public:
 		PhoneBook();
+		~PhoneBook();
 		void	addContact(const Contact& contact);
 		void	searchContact(void) const;
 		void	displayContact(void) const;
