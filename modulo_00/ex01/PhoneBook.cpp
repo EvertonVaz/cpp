@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:08:47 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 15:47:30 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:06:13 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static void print(std::string str) {
 void	PhoneBook::displayContact(void) const {
 	int	i;
 
-	std::cout << "    Index |First Name| Last Name|  Nickname\n";
+	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	i = 0;
 	while (i < contactsCount)
 	{
-		std::cout << std::setw(10) << i + 1 << "|";
+		std::cout << "|" << std::setw(10) << i + 1 << "|";
 		print(_contacts[i].getFirstName());
 		print(_contacts[i].getLastName());
 		print(_contacts[i].getNickname());
@@ -59,10 +59,7 @@ void	PhoneBook::searchContact(void) const {
 	std::cout << "Enter the index of the contact you want to see: ";
 	std::getline(std::cin, index);
 	if (std::cin.eof() == 1)
-	{
-		std::cin.clear();
-		exit(0);
-	}
+		return;
 	i = std::atoi(index.c_str()) - 1;
 	if (i >= 0 && i < contactsCount)
 	{
