@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 10:40:37 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 09:05:27 by egeraldo         ###   ########.fr       */
+/*   Created: 2024/06/27 11:28:28 by egeraldo          #+#    #+#             */
+/*   Updated: 2024/06/27 13:28:12 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Account.hpp"
 
-#include "Contact.hpp"
-
-#define RED "\033[41m"
-#define YELLOW "\033[43m\033[30m"
-#define END "\033[0m"
-
-class	PhoneBook {
-
-	private:
-		Contact		_contacts[8];
-		int			currentContactIndex;
-		int			contactsCount;
-
-	public:
-		PhoneBook();
-		void	addContact(const Contact& contact);
-		void	searchContact(void) const;
-		void	displayContact(void) const;
-};
-
-#endif
+int main(void)
+{
+	Account		acc1(42);
+	Account		acc2(75);
+	Account::displayAccountsInfos();
+	acc1.displayStatus();
+	acc2.displayStatus();
+	acc1.makeDeposit(5);
+	acc2.makeDeposit(5);
+	acc1.makeWithdrawal(47);
+	acc2.makeWithdrawal(50);
+	acc1.displayStatus();
+	acc2.displayStatus();
+	Account::displayAccountsInfos();
+	return (0);
+}

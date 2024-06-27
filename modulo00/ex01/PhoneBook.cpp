@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:08:47 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/26 15:03:46 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 09:07:25 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	PhoneBook::searchContact(void) const {
 
 	if (contactsCount == 0)
 	{
-		std::cout << RED << "No contacts available" << END << std::endl;
+		std::cout << YELLOW << " No contacts available " << END << std::endl;
 		return ;
 	}
 	displayContact();

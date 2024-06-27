@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:22:19 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/26 15:20:59 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 09:06:27 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(void)
 		else if (command == "3" || command == "EXIT" || std::cin.eof() == 1)
 			break;
 		else
-			std::cout << RED << "Invalid command" << END;
+			std::cout << RED << "Invalid command" << END << std::endl;
 		std::cout << std::endl;
 	}
 	return (0);

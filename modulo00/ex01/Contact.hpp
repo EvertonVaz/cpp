@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 10:41:28 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/26 11:09:19 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/27 08:47:18 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 #include <iostream>
-#include <iostream>
 #include <iomanip>
+#include <cstdlib>
+
 class Contact
 {
 	private:
