@@ -6,7 +6,7 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/06/27 17:30:56 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/06/28 15:25:21 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(BIN_PATH)%.o: $(MANDATORY_SOURCES_PATH)%.cpp
 
 $(NAME): $(OBJECTS)
 	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
-	@echo $(CYAN)"| MEGAPHONE executable was created successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"|      executable was created successfully!!      |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
 	@echo " "
