@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 10:50:34 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 13:00:21 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/28 11:29:14 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void Account::_displayTimestamp() {
 	std::cout << "] ";
 }
 
-Account::Account( int initial_deposit ) : _accountIndex(_nbAccounts),
-			_amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
+Account::Account( int initial_deposit ) {
+	_accountIndex = _nbAccounts;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 	_nbAccounts++;

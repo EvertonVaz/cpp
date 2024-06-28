@@ -6,13 +6,17 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:08:47 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/27 16:06:13 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/28 11:27:24 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : currentContactIndex(0), contactsCount(0) {};
+PhoneBook::PhoneBook() {
+	currentContactIndex = 0;
+	contactsCount = 0;
+};
+
 PhoneBook::~PhoneBook() {};
 
 void	PhoneBook::addContact(const Contact& contact) {
