@@ -6,11 +6,11 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/06/28 11:06:36 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/06/28 13:04:21 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = address
+NAME = figth
 FLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 CC = c++
 
@@ -28,7 +28,7 @@ MANDATORY_SOURCES_PATH = ./
 INCLUDES_PATH = ./includes/
 
 SRC = \
-	main.cpp
+	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SRC:%.cpp=%.o))
 

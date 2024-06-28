@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:12:19 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/28 11:13:43 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/06/28 12:54:32 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define WEAPON_HPP
 
 #include <iostream>
+
+#define YELLOW	"\033[33m"
+#define OCEAN	"\033[36m"
+#define END		"\033[0m"
 
 class Weapon {
 	private:
