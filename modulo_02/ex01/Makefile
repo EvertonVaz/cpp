@@ -6,11 +6,11 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/07/01 12:29:31 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/07/02 11:49:03 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Megaphone
+NAME = Fixed
 FLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 CC = c++
 
@@ -28,7 +28,7 @@ MANDATORY_SOURCES_PATH = ./
 INCLUDES_PATH = ./includes/
 
 SRC = \
-	megaphone.cpp
+	main.cpp Fixed.cpp
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SRC:%.cpp=%.o))
 
@@ -40,8 +40,8 @@ $(BIN_PATH)%.o: $(MANDATORY_SOURCES_PATH)%.cpp
 	@echo " "
 
 $(NAME): $(OBJECTS)
-	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
-	@echo $(CYAN)"| MEGAPHONE executable was created successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"|      executable was created successfully!!     |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
 	@echo " "

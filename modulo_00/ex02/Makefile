@@ -6,13 +6,15 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/06/27 13:29:15 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/07/01 12:44:33 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Account
 FLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 CC = c++
+
+# git diff --no-index --word-diff=color --word-diff-regex=. file1 file2
 
 # Colors Definition
 BLUE = "\033[34;1m"

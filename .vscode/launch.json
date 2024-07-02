@@ -9,7 +9,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/modulo_01/ex04/replace",
+			"program": "${workspaceFolder}/modulo_02/ex01/Fixed",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}/modulo_01/ex04/",

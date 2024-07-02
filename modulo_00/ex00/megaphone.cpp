@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 11:28:28 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/01 12:30:29 by egeraldo         ###   ########.fr       */
+/*   Created: 2024/06/18 14:36:30 by egeraldo          #+#    #+#             */
+/*   Updated: 2024/07/01 12:29:19 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Account.hpp"
+#include <iostream>
+#include <cctype>
 
-int main(void)
+int main(int argc, char **argv)
 {
-	Account		acc1(42);
-	Account		acc2(75);
-	Account::displayAccountsInfos();
-	acc1.displayStatus();
-	acc2.displayStatus();
-	acc1.makeDeposit(5);
-	acc2.makeDeposit(5);
-	acc1.makeWithdrawal(47);
-	acc1.displayStatus();
-	acc2.displayStatus();
-	Account::displayAccountsInfos();
-	return (0);
+	if (argc > 1)
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			for (int j = 0; argv[i][j]; j++)
+				std::cout << (char)toupper(argv[i][j]);
+			if (i < argc - 1)
+				std::cout << " ";
+		}
+		std::cout << std::endl;
+		return (0);
+	}
+	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	return (1);
 }

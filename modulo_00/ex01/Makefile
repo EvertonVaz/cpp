@@ -6,7 +6,7 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/06/26 09:58:08 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/07/01 12:06:23 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ MANDATORY_SOURCES_PATH = ./
 INCLUDES_PATH = ./includes/
 
 SRC = \
-	main.cpp PhoneBook.cpp Contact.cpp\
+	main.cpp PhoneBook.cpp Contact.cpp utils.cpp
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SRC:%.cpp=%.o))
 
