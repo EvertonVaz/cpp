@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:03 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 16:54:04 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:03:48 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap {
 		void		beRepaired(ClapTrap &clap, unsigned int amount);
 		void		beRepaired(unsigned int amount);
 		void		takeDamage(unsigned int amount);
-		bool		unavailable(ClapTrap &clap);
+		bool		isUnavailable(ClapTrap &clap);
 		std::string	getName();
 		int			getHitPoint();
 		int			getEnergyPoint();

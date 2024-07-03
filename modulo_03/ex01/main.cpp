@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 10:13:16 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 17:54:16 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:05:19 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void) {
 	ClapTrap clap("Bob Sponge");
 	ScavTrap clap2("Patrick Star");
 	std::cout << "Welcome to ClapTrap game!" << std::endl;
-	while (!clap.unavailable(clap) && !clap2.unavailable(clap2)) {
+	while (!clap.isUnavailable(clap) && !clap2.isUnavailable(clap2)) {
 		drawMainScene(clap, clap2);
 		command = gameMenu();
 		if (command == "1" || command == "ATTACK") {

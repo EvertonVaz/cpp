@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 17:52:56 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:04:43 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 }
 
 void	ScavTrap::attack(const std::string &target) {
-	if (unavailable(*this))
+	if (isUnavailable(*this))
 		return;
 	std::cout << UNDER_GREEN "ScavTrap " << this->name << " attack ";
 	std::cout << target << ", causing " << this->attackDamage;
@@ -62,9 +62,9 @@ void	ScavTrap::attack(const std::string &target) {
 }
 
 void	ScavTrap::attack(ClapTrap &target) {
-	if (unavailable(*this))
+	if (isUnavailable(*this))
 		return ;
-	if (unavailable(target))
+	if (isUnavailable(target))
 		return ;
 	this->attack(target.getName());
 	target.takeDamage(this->attackDamage);
@@ -74,7 +74,7 @@ void	ScavTrap::attack(ClapTrap &target) {
 
 void	ScavTrap::guardGate(void)
 {
-	if (unavailable(*this))
+	if (isUnavailable(*this))
 		return;
 	std::cout << YELLOW "ScavTrap " << this->name;
 	std::cout << " have enterred in Gate keeper mode" END << std::endl;

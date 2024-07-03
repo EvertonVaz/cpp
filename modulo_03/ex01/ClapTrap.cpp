@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:30:08 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 17:42:49 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:04:11 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	ClapTrap::attack(const std::string &target) {
 }
 
 void	ClapTrap::attack(ClapTrap &target) {
-	if (unavailable(*this))
+	if (isUnavailable(*this))
 		return ;
-	if (unavailable(target))
+	if (isUnavailable(target))
 		return ;
 	attack(target.name);
 	target.takeDamage(this->attackDamage);
@@ -69,14 +69,14 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 }
 
 void	ClapTrap::beRepaired(ClapTrap &clap, unsigned int amount) {
-	if (unavailable(clap))
+	if (isUnavailable(clap))
 		return ;
 	beRepaired(amount);
 	clap.hitPoint += amount;
 	clap.energyPoint--;
 }
 
-bool	ClapTrap::unavailable(ClapTrap &clap) {
+bool	ClapTrap::isUnavailable(ClapTrap &clap) {
 	if (clap.energyPoint <= 0) {
 		std::cout << RED "ClapTrap " << clap.name;
 		std::cout << " is out of energy!" END << std::endl;
