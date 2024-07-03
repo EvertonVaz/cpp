@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:04:43 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:07:16 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ScavTrap::guardGate(void)
 	if (isUnavailable(*this))
 		return;
 	std::cout << YELLOW "ScavTrap " << this->name;
-	std::cout << " have enterred in Gate keeper mode" END << std::endl;
+	std::cout << " has entered Gate keeper mode" END << std::endl;
 	this->energyPoint--;
 }
 
