@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 10:13:16 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:05:19 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:21:39 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ int	main(void) {
 		else
 			std::cout << RED "Invalid command" END << std::endl;
 	}
-	drawDeathScene();
+	if (clap.isUnavailable(clap))
+		drawDeathScene();
+	else if (clap2.isUnavailable(clap2))
+		drawDeathScene();
 	clap.showStatus();
 	clap2.showStatus();
 	std::cout << BOLD_RED "\nGame Over!\n" END << std::endl;

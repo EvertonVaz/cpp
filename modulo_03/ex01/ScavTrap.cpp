@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:07:16 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:20:14 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,28 @@ void	ScavTrap::attack(ClapTrap &target) {
 	target.takeDamage(this->attackDamage);
 	target.setHitPoint(target.getHitPoint() - this->attackDamage);
 	this->energyPoint--;
+}
+
+void	ScavTrap::beRepaired(unsigned int amount) {
+	std::cout << CYAN "ScavTrap " << this->name << " be repaired ";
+	std::cout << amount << " points of health!" END << std::endl;
+	this->hitPoint += amount;
+}
+
+void	ScavTrap::beRepaired(ScavTrap &clap, unsigned int amount) {
+	if (isUnavailable(clap))
+		return ;
+	beRepaired(amount);
+	clap.hitPoint += amount;
+	clap.energyPoint--;
+}
+
+void	ScavTrap::takeDamage(unsigned int amount) {
+	if (isUnavailable(*this))
+		return;
+	std::cout << MAGENTA "ScavTrap " << this->name << " take ";
+	std::cout << amount << " points of damage!" END << std::endl;
+	this->hitPoint -= amount;
 }
 
 void	ScavTrap::guardGate(void)
