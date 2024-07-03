@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:42:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 17:48:56 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 15:10:15 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	drawMainScene(ClapTrap &clapOne, ClapTrap &clapTwo)
 	std::cout << "     // \\\\_           // \\\\_ " << std::endl;
 	std::cout << "     I_   /           I_   /" << std::endl;
 	std::cout << std::left;
-	std::cout << std::setw(8) << "Name: " << std::setw(10) << clapOne.getName() << " | ";
-	std::cout << std::setw(8) << "Name: " << std::setw(10) << clapTwo.getName() << std::endl;
-	std::cout << std::setw(8) << "HP: " << std::setw(10) << clapOne.getHitPoint() << " | ";
-	std::cout << std::setw(8) << "HP: " << std::setw(10) << clapTwo.getHitPoint() << std::endl;
-	std::cout << std::setw(8) << "Energy: " << std::setw(10) << clapOne.getEnergyPoint() << " | ";
-	std::cout << std::setw(8) << "Energy: " << std::setw(10) << clapTwo.getEnergyPoint() << std::endl;
+	std::cout << std::setw(8) << "Name: " << std::setw(9) << clapOne.getName() << " | ";
+	std::cout << std::setw(8) << "Name: " << std::setw(9) << clapTwo.getName() << std::endl;
+	std::cout << std::setw(8) << "HP: " << std::setw(9) << clapOne.getHitPoint() << " | ";
+	std::cout << std::setw(8) << "HP: " << std::setw(9) << clapTwo.getHitPoint() << std::endl;
+	std::cout << std::setw(8) << "Energy: " << std::setw(9) << clapOne.getEnergyPoint() << " | ";
+	std::cout << std::setw(8) << "Energy: " << std::setw(9) << clapTwo.getEnergyPoint() << std::endl;
   	waitAndClean();
 }
 

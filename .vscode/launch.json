@@ -9,7 +9,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/modulo_03/ex00/ClapTrap",
+			"program": "${workspaceFolder}/modulo_03/ex01/ClapTrap",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}/modulo_01/ex04/",

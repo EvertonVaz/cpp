@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:03 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 16:43:51 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:54:04 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string name;
 		int			hitPoint;
 		int			energyPoint;
@@ -31,9 +31,9 @@ class ClapTrap {
 		ClapTrap	&operator=(const ClapTrap &copy);
 		void		attack(const std::string &target);
 		void		attack(ClapTrap &target);
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
 		void		beRepaired(ClapTrap &clap, unsigned int amount);
+		void		beRepaired(unsigned int amount);
+		void		takeDamage(unsigned int amount);
 		bool		unavailable(ClapTrap &clap);
 		std::string	getName();
 		int			getHitPoint();
@@ -41,6 +41,7 @@ class ClapTrap {
 		int			getAttackDamage();
 		void		showStatus();
 		void		setAttackDamage(unsigned int amount);
+		void		setHitPoint(unsigned int amount);
 };
 
 void	waitAndClean(void);

@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:30:08 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 16:44:46 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:42:49 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,12 @@ void	ClapTrap::setAttackDamage(unsigned int amount) {
 	this->attackDamage = amount;
 }
 
+void	ClapTrap::setHitPoint(unsigned int amount) {
+	this->hitPoint = amount;
+}
+
 void	ClapTrap::showStatus() {
-	std::cout << UNDER_CYAN "ClapTrap " << this->name << " status:" END << std::endl;
+	std::cout << UNDER_CYAN "\nClapTrap " << this->name << " status:" END << std::endl;
 	std::cout << "Hit Points: " << this->hitPoint << std::endl;
 	std::cout << "Energy Points: " << this->energyPoint << std::endl;
 	std::cout << "Attack Damage: " << this->attackDamage << std::endl;

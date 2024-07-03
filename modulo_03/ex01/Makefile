@@ -6,7 +6,7 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/07/03 16:48:50 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/07/03 17:29:42 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ MANDATORY_SOURCES_PATH = ./
 INCLUDES_PATH = ./includes/
 
 SRC = \
-	main.cpp ClapTrap.cpp drawScene.cpp
+	main.cpp ClapTrap.cpp ScavTrap.cpp drawScene.cpp
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SRC:%.cpp=%.o))
 
