@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:46:00 by egeraldo         ###   ########.fr       */
+/*   Created: 2024/07/03 18:31:24 by egeraldo          #+#    #+#             */
+/*   Updated: 2024/07/03 18:45:44 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+
+#include "FragTrap.hpp"
 #include "../colors.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << UNDER_CYAN "ScavTrap default constructor called" END << std::endl;
+	std::cout << UNDER_BLUE "FragTrap default constructor called" END << std::endl;
 	this->hitPoint = 100;
-	this->energyPoint = 50;
-	this->attackDamage = 20;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << UNDER_CYAN "ScavTrap name constructor called" END << std::endl;
+	std::cout << UNDER_BLUE "FragTrap name constructor called" END << std::endl;
 	this->hitPoint = 100;
-	this->energyPoint = 50;
-	this->attackDamage = 20;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = copy;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
-ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
+FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
-	std::cout << "ScavTrap assignation operator called" << std::endl;
+	std::cout << "FragTrap assignation operator called" << std::endl;
 	if (this == &copy)
 		return (*this);
 	this->name = copy.name;
@@ -52,15 +53,15 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 	return (*this);
 }
 
-void	ScavTrap::attack(const std::string &target) {
+void	FragTrap::attack(const std::string &target) {
 	if (isUnavailable(*this))
 		return;
-	std::cout << UNDER_GREEN "ScavTrap " << this->name << " attack ";
+	std::cout << UNDER_CYAN "FragTrap " << this->name << " attack ";
 	std::cout << target << ", causing " << this->attackDamage;
 	std::cout << " points of damage!" END << std::endl;
 }
 
-void	ScavTrap::attack(ClapTrap &target) {
+void	FragTrap::attack(ClapTrap &target) {
 	if (isUnavailable(*this))
 		return ;
 	if (isUnavailable(target))
@@ -71,13 +72,13 @@ void	ScavTrap::attack(ClapTrap &target) {
 	this->energyPoint--;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount) {
-	std::cout << CYAN "ScavTrap " << this->name << " be repaired ";
+void	FragTrap::beRepaired(unsigned int amount) {
+	std::cout << CYAN "FragTrap " << this->name << " be repaired ";
 	std::cout << amount << " points of health!" END << std::endl;
 	this->hitPoint += amount;
 }
 
-void	ScavTrap::beRepaired(ScavTrap &clap, unsigned int amount) {
+void	FragTrap::beRepaired(FragTrap &clap, unsigned int amount) {
 	if (isUnavailable(clap))
 		return ;
 	beRepaired(amount);
@@ -85,23 +86,18 @@ void	ScavTrap::beRepaired(ScavTrap &clap, unsigned int amount) {
 	clap.energyPoint--;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount) {
+void	FragTrap::takeDamage(unsigned int amount) {
 	if (isUnavailable(*this))
 		return;
-	std::cout << MAGENTA "ScavTrap " << this->name << " take ";
+	std::cout << MAGENTA "FragTrap " << this->name << " take ";
 	std::cout << amount << " points of damage!" END << std::endl;
 }
 
-void	ScavTrap::guardGate(void)
-{
-	if (isUnavailable(*this))
-		return;
-	std::cout << YELLOW "ScavTrap " << this->name;
-	std::cout << " has entered Gate keeper mode" END << std::endl;
-	this->energyPoint--;
+void	FragTrap::highFivesGuys(void) {
+	std::cout << UNDER_YELLOW "FragTrap " << this->name << " high fives guys!" END << std::endl;
 }
 
-void	ScavTrap::showStatus(void) {
+void	FragTrap::showStatus(void) {
 	std::cout << UNDER_CYAN "\nScavTrap " << this->name << " status:" END << std::endl;
 	std::cout << "Hit Points: " << this->hitPoint << std::endl;
 	std::cout << "Energy Points: " << this->energyPoint << std::endl;

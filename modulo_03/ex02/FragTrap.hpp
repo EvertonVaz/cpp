@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 15:13:26 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:28:22 by egeraldo         ###   ########.fr       */
+/*   Created: 2024/07/03 18:23:28 by egeraldo          #+#    #+#             */
+/*   Updated: 2024/07/03 18:33:38 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class FragTrap : public ClapTrap {
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &copy);
-		~ScavTrap();
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &copy);
+		~FragTrap();
 
-		ScavTrap	&operator=(const ScavTrap &copy);
+		FragTrap	&operator=(const FragTrap &copy);
 		void		attack(ClapTrap &target);
 		void		attack(const std::string &target);
-		void		beRepaired(ScavTrap &clap, unsigned int amount);
+		void		beRepaired(FragTrap &clap, unsigned int amount);
 		void		beRepaired(unsigned int amount);
 		void		takeDamage(unsigned int amount);
-		void		guardGate(void);
+		void		highFivesGuys(void);
 		void		showStatus(void);
 };
 

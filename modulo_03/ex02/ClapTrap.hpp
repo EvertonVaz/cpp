@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:03 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:28:46 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:51:16 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,19 @@ class ClapTrap {
 		void		beRepaired(unsigned int amount);
 		void		takeDamage(unsigned int amount);
 		bool		isUnavailable(ClapTrap &clap);
-		std::string	getName(void);
-		int			getHitPoint(void);
-		int			getEnergyPoint(void);
-		int			getAttackDamage(void);
-		void		showStatus(void);
+		std::string	getName();
+		int			getHitPoint();
+		int			getEnergyPoint();
+		int			getAttackDamage();
+		void		showStatus();
 		void		setAttackDamage(unsigned int amount);
 		void		setHitPoint(unsigned int amount);
+		void		setEnergyPoint(unsigned int amount);
 };
 
 void	waitAndClean(void);
 void	drawMainScene(ClapTrap &clapOne, ClapTrap &clapTwo);
-void	drawAttackScene(void);
-void	drawDeathScene(void);
+void	drawAttackScene();
+void	drawDeathScene();
 
 #endif
