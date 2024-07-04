@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:31:24 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:45:44 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:19:22 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << MAGENTA "FragTrap destructor called" END << std::endl;
 }
 
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
@@ -95,10 +95,11 @@ void	FragTrap::takeDamage(unsigned int amount) {
 
 void	FragTrap::highFivesGuys(void) {
 	std::cout << UNDER_YELLOW "FragTrap " << this->name << " high fives guys!" END << std::endl;
+	energyPoint--;
 }
 
 void	FragTrap::showStatus(void) {
-	std::cout << UNDER_CYAN "\nScavTrap " << this->name << " status:" END << std::endl;
+	std::cout << UNDER_CYAN "FragTrap " << this->name << " status:" END << std::endl;
 	std::cout << "Hit Points: " << this->hitPoint << std::endl;
 	std::cout << "Energy Points: " << this->energyPoint << std::endl;
 	std::cout << "Attack Damage: " << this->attackDamage << std::endl;
