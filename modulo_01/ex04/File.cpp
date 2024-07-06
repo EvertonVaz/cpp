@@ -6,7 +6,7 @@
 /*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 13:17:13 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/06 10:00:41 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/06 10:07:00 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ std::string File::replace(std::string file){
 
 void File::newFile(){
 	std::string file = readFile();
-	if (file == "") {
-		return ;
-	}
 	try {
 		std::string newFile = replace(file);
 		std::ofstream file((filename + ".replace").c_str());
