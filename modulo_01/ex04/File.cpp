@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   File.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 13:17:13 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/28 15:08:42 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/06 10:00:41 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,27 @@ std::string File::readFile(void){
 	}
 }
 
-std::string File::replace(std::string str){
-	std::string new_str;
-	size_t i = 0;
-	while (str[i]){
-		if (str.substr(i, s1.size()) == s1){
-				new_str += s2;
-				i += s1.size();
-		}
-		else
-			new_str += str[i++];
+std::string File::replace(std::string file){
+	while (file.find(s1) != std::string::npos) {
+		std::size_t pos = file.find(s1);
+		file.erase(pos, s1.length());
+		file.insert(pos, s2);
 	}
-	return (new_str);
+	return (file);
 }
 
 void File::newFile(){
-	std::string str = readFile();
-	if (str.empty()) {
+	std::string file = readFile();
+	if (file == "") {
 		return ;
 	}
-	std::string new_str = replace(str);
 	try {
+		std::string newFile = replace(file);
 		std::ofstream file((filename + ".replace").c_str());
 		if (!file) {
-			throw std::runtime_error("Could not open file " + filename + ".replace");
+			return throw std::runtime_error("Could not open file " + filename + ".replace");
 		}
-		file << new_str;
+		file << newFile;
 		file.close();
 	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
