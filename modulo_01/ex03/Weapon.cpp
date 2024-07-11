@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:24:45 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/28 12:11:05 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:32:11 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Weapon::Weapon(std::string type) :
 
 Weapon::~Weapon() {}
 
-std::string const &Weapon::getType() {
+const std::string &Weapon::getType() {
 	return _type;
 }
 

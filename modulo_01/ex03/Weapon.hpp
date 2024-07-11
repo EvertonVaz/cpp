@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:12:19 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/06/28 12:54:32 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:32:05 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon {
 	public:
 		Weapon(std::string type);
 		~Weapon();
-		std::string const &getType();
+		const std::string &getType();
 		void setType(std::string type);
 };
 
