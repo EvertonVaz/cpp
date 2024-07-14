@@ -6,7 +6,7 @@
 /*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 13:17:13 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/06 10:07:00 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/14 10:40:13 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,23 @@ std::string File::readFile(void){
 }
 
 std::string File::replace(std::string file){
-	while (file.find(s1) != std::string::npos) {
-		std::size_t pos = file.find(s1);
+	std::size_t pos = 0;
+
+	while (pos != std::string::npos) {
+		pos = file.find(s1, pos);
+		if (pos == std::string::npos)
+			break;
 		file.erase(pos, s1.length());
 		file.insert(pos, s2);
+		pos += s1.length();
 	}
 	return (file);
 }
 
 void File::newFile(){
-	std::string file = readFile();
 	try {
-		std::string newFile = replace(file);
+		std::string originFile = readFile();
+		std::string newFile = replace(originFile);
 		std::ofstream file((filename + ".replace").c_str());
 		if (!file) {
 			return throw std::runtime_error("Could not open file " + filename + ".replace");
