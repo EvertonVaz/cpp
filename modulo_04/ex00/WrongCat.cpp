@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 13:42:06 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 13:44:13 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:15:51 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,4 @@ WrongCat::~WrongCat() {
 
 void WrongCat::makeSound() const {
 	std::cout <<UNDER_RED "WrongCat sound: Meow Meow!" END<< std::endl;
-}
-
-std::string WrongCat::getType() const {
-	return (this->_type);
 }

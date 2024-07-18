@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:23:28 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 10:55:34 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:24:15 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class FragTrap : virtual public ClapTrap {
 		FragTrap	&operator=(const FragTrap &copy);
 		void		attack(ClapTrap &target);
 		void		attack(const std::string &target);
-		void		beRepaired(FragTrap &clap, unsigned int amount);
-		void		beRepaired(unsigned int amount);
-		void		takeDamage(unsigned int amount);
 		void		highFivesGuys(void);
 		void		showStatus(void);
 };

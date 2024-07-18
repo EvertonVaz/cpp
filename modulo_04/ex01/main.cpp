@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:50:33 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 15:02:19 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 10:01:30 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //vai imprimir o som do gato!
+    i->makeSound();
     j->makeSound();
     meta->makeSound();
 
@@ -37,7 +37,7 @@ int main()
 	delete j;
 	delete i;
 
-	std::cout << "---------------------" << std::endl;
+	std::cout << "\n\n--------------------\n\n" << std::endl;
     Animal* animals[4];
 
     animals[0] = new Dog();
@@ -49,11 +49,12 @@ int main()
         animals[i]->makeSound();
     }
 
-	std::cout << "\n\n-------COPY----------\n\n" << std::endl;
+	std::cout << "\n\n--------------------\n\n" << std::endl;
 	Animal *copy = new Cat(*(Cat *)animals[1]);
+
 	copy->setType("OUTRO TIPO");
-	std::cout << copy->getType() << std::endl;
 	std::cout << animals[1]->getType() << std::endl;
+	std::cout << copy->getType() << std::endl;
 	copy->makeSound();
 	delete copy;
 
@@ -61,5 +62,15 @@ int main()
         delete animals[i];
     }
 
+   	std::cout << "\n\n--------------------\n\n" << std::endl;
+
+    Dog dog42 = Dog();
+    {
+        Dog tmp = dog42;
+        std::cout << tmp.getBrain()[97] << std::endl;
+        tmp.makeSound();
+    }
+    dog42.makeSound();
+    std::cout << dog42.getBrain()[97] << std::endl;
 	return 0;
 }

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:53:13 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 15:43:13 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 10:09:49 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "../colors.hpp"
 
-Cat::Cat() : Animal("Cat") {
+Cat::Cat() : AAnimal("Cat") {
 	std::cout <<MAGENTA "Cat default constructor called" END<< std::endl;
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &copy) : Animal(copy) {
+Cat::Cat(Cat const &copy) : AAnimal(copy) {
 	std::cout <<MAGENTA "Cat copy constructor called" END<< std::endl;
 	this->_brain = new Brain(*copy._brain);
 }
@@ -26,7 +26,7 @@ Cat::Cat(Cat const &copy) : Animal(copy) {
 Cat &Cat::operator=(Cat const &copy) {
 	std::cout <<MAGENTA "Cat assignation operator called" END<< std::endl;
 	if (this != &copy) {
-        Animal::operator=(copy);
+        AAnimal::operator=(copy);
         delete this->_brain;
         this->_brain = new Brain(*copy._brain);
     }
@@ -44,4 +44,8 @@ void Cat::makeSound() const {
 
 std::string Cat::getType() const {
 	return (this->_type);
+}
+
+std::string *Cat::getBrain() const {
+    return this->_brain->getIdea();
 }

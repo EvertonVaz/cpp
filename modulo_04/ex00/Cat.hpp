@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:52:35 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 11:21:51 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 09:29:16 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ class Cat : public Animal {
 		Cat(Cat const &copy);
 		Cat &operator=(Cat const &copy);
 		virtual ~Cat();
-		void makeSound() const;
-		std::string getType() const;
+		virtual void makeSound() const;
 };
 
 #endif

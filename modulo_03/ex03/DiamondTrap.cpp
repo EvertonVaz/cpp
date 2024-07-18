@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:50:10 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 11:21:39 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:26:06 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), name
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), name(copy.name)
 {
-	std::cout << "DiamondTrap copy constructor called" << std::endl;
+	std::cout << UNDER_YELLOW "DiamondTrap copy constructor called" END << std::endl;
 	*this = copy;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << BOLD_YELLOW "DiamondTrap destructor called" END << std::endl;
+	std::cout << UNDER_YELLOW "DiamondTrap destructor called" END << std::endl;
 }
 
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &copy)
@@ -57,50 +57,16 @@ void	DiamondTrap::whoAmI()
 	std::cout << YELLOW "DiamondTrap name: " << this->name << ", ClapTrap name: " << this->ClapTrap::name << END << std::endl;
 }
 
-void	DiamondTrap::attack(const std::string &target)
-{
-	if (isUnavailable(*this))
-		return;
-	std::cout << UNDER_YELLOW "DiamondTrap " << this->name << " attack ";
-	std::cout << target << ", causing " << this->attackDamage;
-	std::cout << " points of damage!" END << std::endl;
-}
-
 void	DiamondTrap::attack(ClapTrap &target)
 {
 	if (isUnavailable(*this))
 		return ;
 	if (isUnavailable(target))
 		return ;
-	this->attack(target.getName());
+	ScavTrap::attack(target.getName());
 	target.takeDamage(this->attackDamage);
 	target.setHitPoint(target.getHitPoint() - this->attackDamage);
 	this->energyPoint--;
-}
-
-void	DiamondTrap::beRepaired(DiamondTrap &clap, unsigned int amount)
-{
-	if (isUnavailable(*this))
-		return ;
-	if (isUnavailable(clap))
-		return ;
-	beRepaired(amount);
-	clap.hitPoint += amount;
-	clap.energyPoint--;
-}
-
-void	DiamondTrap::beRepaired(unsigned int amount)
-{
-	std::cout << YELLOW "DiamondTrap " << this->name << " be repaired ";
-	std::cout << amount << " points of health!" END << std::endl;
-}
-
-void	DiamondTrap::takeDamage(unsigned int amount)
-{
-	if (isUnavailable(*this))
-		return;
-	std::cout << MAGENTA "DiamondTrap " << this->name << " take ";
-	std::cout << amount << " points of damage!" END << std::endl;
 }
 
 void	DiamondTrap::showStatus(void)

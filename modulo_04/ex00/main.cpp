@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:50:33 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 13:45:56 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 09:31:21 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int main()
 	std::cout << j2->getType() << " " << std::endl;
 	j2->makeSound();
 	meta2->makeSound();
-	delete meta2;
 	delete j2;
+	delete meta2;
+	const WrongCat *j3 = new WrongCat();
+	std::cout << j3->getType() << " " << std::endl;
+	j3->makeSound();
+	delete j3;
 	return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:53:13 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 13:51:51 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:14:32 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,3 @@ void Cat::makeSound() const {
 	std::cout <<UNDER_MAGENTA "Cat sound: Meow Meow!" END<< std::endl;
 }
 
-std::string Cat::getType() const {
-	return (this->_type);
-}

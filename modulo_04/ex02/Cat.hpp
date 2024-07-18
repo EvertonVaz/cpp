@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:52:35 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 15:35:58 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 10:06:53 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	private:
 		Brain *_brain;
 
@@ -28,6 +28,7 @@ class Cat : public Animal {
 		virtual ~Cat();
 		void makeSound() const;
 		std::string getType() const;
+		std::string *getBrain() const;
 };
 
 #endif

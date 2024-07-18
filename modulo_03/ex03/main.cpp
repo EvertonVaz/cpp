@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 10:13:16 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 11:15:16 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:58:39 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	main(void) {
 		}
 		else if (command == "4" || command == "HIGH FIVE") {
 			diamond.highFivesGuys();
+			frag.highFivesGuys();
 		}
 		else if (command == "5" || command == "WHO AMI") {
 			diamond.whoAmI();

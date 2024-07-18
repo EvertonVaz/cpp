@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:42:29 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 15:35:32 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/16 18:09:59 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 #include <iostream>
 
-class Animal {
+class AAnimal {
 	protected:
 		std::string _type;
 
 	public:
-		Animal();
-		Animal(std::string type);
-		Animal(Animal const &copy);
-		Animal &operator=(Animal const &copy);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(std::string type);
+		AAnimal(AAnimal const &copy);
+		AAnimal &operator=(AAnimal const &copy);
+		virtual ~AAnimal();
 		virtual void makeSound() const = 0;
 		virtual std::string getType() const;
 		virtual void setType(std::string type);

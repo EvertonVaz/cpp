@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:46:00 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 11:56:38 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << UNDER_CYAN "ScavTrap destructor called" END << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
@@ -55,7 +55,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 void	ScavTrap::attack(const std::string &target) {
 	if (isUnavailable(*this))
 		return;
-	std::cout << UNDER_GREEN "ScavTrap " << this->name << " attack ";
+	std::cout << UNDER_CYAN "ScavTrap " << this->name << " attack ";
 	std::cout << target << ", causing " << this->attackDamage;
 	std::cout << " points of damage!" END << std::endl;
 }
@@ -71,32 +71,11 @@ void	ScavTrap::attack(ClapTrap &target) {
 	this->energyPoint--;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount) {
-	std::cout << CYAN "ScavTrap " << this->name << " be repaired ";
-	std::cout << amount << " points of health!" END << std::endl;
-	this->hitPoint += amount;
-}
-
-void	ScavTrap::beRepaired(ScavTrap &clap, unsigned int amount) {
-	if (isUnavailable(clap))
-		return ;
-	beRepaired(amount);
-	clap.hitPoint += amount;
-	clap.energyPoint--;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount) {
-	if (isUnavailable(*this))
-		return;
-	std::cout << MAGENTA "ScavTrap " << this->name << " take ";
-	std::cout << amount << " points of damage!" END << std::endl;
-}
-
 void	ScavTrap::guardGate(void)
 {
 	if (isUnavailable(*this))
 		return;
-	std::cout << YELLOW "ScavTrap " << this->name;
+	std::cout << UNDER_CYAN "ScavTrap " << this->name;
 	std::cout << " has entered Gate keeper mode" END << std::endl;
 	this->energyPoint--;
 }

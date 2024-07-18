@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:30:08 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 18:29:52 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:46:00 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap& copy) {
 }
 
 void	ClapTrap::attack(const std::string &target) {
-	std::cout << GREEN "ClapTrap " << this->name << " attack ";
+	std::cout << UNDER_WHITE "ClapTrap " << this->name << " attack ";
 	std::cout << target << ", causing " << this->attackDamage;
 	std::cout << " points of damage!" END << std::endl;
 }
@@ -59,31 +59,31 @@ void	ClapTrap::attack(ClapTrap &target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	std::cout << MAGENTA "ClapTrap " << this->name << " take ";
+	std::cout << UNDER_WHITE << this->name << " take ";
 	std::cout << amount << " points of damage!" END << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << CYAN "ClapTrap " << this->name << " be repaired ";
+	std::cout << UNDER_WHITE << this->name << " be repaired ";
 	std::cout << amount << " points of health!" END << std::endl;
 }
 
 void	ClapTrap::beRepaired(ClapTrap &clap, unsigned int amount) {
 	if (isUnavailable(clap))
 		return ;
-	beRepaired(amount);
 	clap.hitPoint += amount;
 	clap.energyPoint--;
+	beRepaired(amount);
 }
 
 bool	ClapTrap::isUnavailable(ClapTrap &clap) {
 	if (clap.energyPoint <= 0) {
-		std::cout << RED "ClapTrap " << clap.name;
+		std::cout << UNDER_YELLOW << clap.name;
 		std::cout << " is out of energy!" END << std::endl;
 		return true;
 	}
 	if (clap.hitPoint <= 0) {
-		std::cout << RED "ClapTrap " << clap.name;
+		std::cout << RED << clap.name;
 		std::cout << " is dead!" END << std::endl;
 		clap.hitPoint = 0;
 		return true;
@@ -116,7 +116,7 @@ void	ClapTrap::setHitPoint(unsigned int amount) {
 }
 
 void	ClapTrap::showStatus(void) {
-	std::cout << UNDER_CYAN "\nClapTrap " << this->name << " status:" END << std::endl;
+	std::cout << UNDER_WHITE "\nClapTrap " << this->name << " status:" END << std::endl;
 	std::cout << "Hit Points: " << this->hitPoint << std::endl;
 	std::cout << "Energy Points: " << this->energyPoint << std::endl;
 	std::cout << "Attack Damage: " << this->attackDamage << std::endl;

@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:31:24 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 11:19:22 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:00:24 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
-	std::cout << "FragTrap copy constructor called" << std::endl;
+	std::cout << UNDER_BLUE "FragTrap copy constructor called" END << std::endl;
 	*this = copy;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << MAGENTA "FragTrap destructor called" END << std::endl;
+	std::cout << UNDER_BLUE "FragTrap destructor called" END << std::endl;
 }
 
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
@@ -72,34 +72,13 @@ void	FragTrap::attack(ClapTrap &target) {
 	this->energyPoint--;
 }
 
-void	FragTrap::beRepaired(unsigned int amount) {
-	std::cout << CYAN "FragTrap " << this->name << " be repaired ";
-	std::cout << amount << " points of health!" END << std::endl;
-	this->hitPoint += amount;
-}
-
-void	FragTrap::beRepaired(FragTrap &clap, unsigned int amount) {
-	if (isUnavailable(clap))
-		return ;
-	beRepaired(amount);
-	clap.hitPoint += amount;
-	clap.energyPoint--;
-}
-
-void	FragTrap::takeDamage(unsigned int amount) {
-	if (isUnavailable(*this))
-		return;
-	std::cout << MAGENTA "FragTrap " << this->name << " take ";
-	std::cout << amount << " points of damage!" END << std::endl;
-}
-
 void	FragTrap::highFivesGuys(void) {
-	std::cout << UNDER_YELLOW "FragTrap " << this->name << " high fives guys!" END << std::endl;
+	std::cout << UNDER_BLUE "FragTrap " << this->name << " high fives guys!" END << std::endl;
 	energyPoint--;
 }
 
 void	FragTrap::showStatus(void) {
-	std::cout << UNDER_CYAN "FragTrap " << this->name << " status:" END << std::endl;
+	std::cout << UNDER_BLUE "FragTrap " << this->name << " status:" END << std::endl;
 	std::cout << "Hit Points: " << this->hitPoint << std::endl;
 	std::cout << "Energy Points: " << this->energyPoint << std::endl;
 	std::cout << "Attack Damage: " << this->attackDamage << std::endl;

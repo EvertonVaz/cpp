@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:52:35 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 14:03:45 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 10:08:38 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 	private:
 		Brain *_brain;
-		
+
 	public:
 		Dog();
 		Dog(Dog const &copy);
@@ -28,6 +28,7 @@ class Dog : public Animal {
 		virtual ~Dog();
 		void makeSound() const;
 		std::string getType() const;
+		std::string *getBrain() const;
 };
 
 #endif

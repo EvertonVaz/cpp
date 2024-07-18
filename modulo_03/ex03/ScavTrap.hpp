@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:13:26 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 10:55:40 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:24:23 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class ScavTrap : virtual public ClapTrap {
 		ScavTrap	&operator=(const ScavTrap &copy);
 		void		attack(ClapTrap &target);
 		void		attack(const std::string &target);
-		void		beRepaired(ScavTrap &clap, unsigned int amount);
-		void		beRepaired(unsigned int amount);
-		void		takeDamage(unsigned int amount);
 		void		guardGate(void);
 		void		showStatus(void);
 };

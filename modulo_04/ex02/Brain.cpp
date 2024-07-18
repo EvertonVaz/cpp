@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 14:00:49 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 14:03:02 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 09:59:22 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "../colors.hpp"
 
 Brain::Brain() {
+	std::string	idea = "I am a idea";
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = idea;
 	std::cout <<GREEN "Brain default constructor called" END<< std::endl;
 }
 
@@ -33,4 +36,8 @@ Brain &Brain::operator=(Brain const &copy) {
 
 Brain::~Brain() {
 	std::cout <<GREEN "Brain destructor called" END<< std::endl;
+}
+
+std::string *Brain::getIdea() const {
+	return ((std::string *)this->_ideas);
 }

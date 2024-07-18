@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:21:48 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/04 11:19:08 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:01:08 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << UNDER_CYAN "ScavTrap copy constructor called" END << std::endl;
 	*this = copy;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << BOLD_MAGENTA "ScavTrap destructor called" END << std::endl;
+	std::cout << UNDER_CYAN "ScavTrap destructor called" END << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
@@ -71,32 +71,11 @@ void	ScavTrap::attack(ClapTrap &target) {
 	this->energyPoint--;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount) {
-	std::cout << CYAN "ScavTrap " << this->name << " be repaired ";
-	std::cout << amount << " points of health!" END << std::endl;
-	this->hitPoint += amount;
-}
-
-void	ScavTrap::beRepaired(ScavTrap &clap, unsigned int amount) {
-	if (isUnavailable(clap))
-		return ;
-	beRepaired(amount);
-	clap.hitPoint += amount;
-	clap.energyPoint--;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount) {
-	if (isUnavailable(*this))
-		return;
-	std::cout << MAGENTA "ScavTrap " << this->name << " take ";
-	std::cout << amount << " points of damage!" END << std::endl;
-}
-
 void	ScavTrap::guardGate(void)
 {
 	if (isUnavailable(*this))
 		return;
-	std::cout << YELLOW "ScavTrap " << this->name;
+	std::cout << UNDER_CYAN "ScavTrap " << this->name;
 	std::cout << " has entered Gate keeper mode" END << std::endl;
 	this->energyPoint--;
 }

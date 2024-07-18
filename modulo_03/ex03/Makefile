@@ -6,12 +6,12 @@
 #    By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/07/04 11:07:34 by egeraldo         ###   ########.fr        #
+#    Updated: 2024/07/16 12:59:20 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ClapTrap
-FLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+FLAGS = -Wall -Werror -Wextra -g3 -std=c++98 -Wshadow
 CC = c++
 
 # Colors Definition

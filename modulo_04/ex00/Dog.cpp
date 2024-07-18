@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:53:13 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 11:20:12 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:14:45 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,3 @@ void Dog::makeSound() const {
 	std::cout <<UNDER_CYAN "Dog sound: Woof Woof!" END<< std::endl;
 }
 
-std::string Dog::getType() const {
-	return (this->_type);
-}

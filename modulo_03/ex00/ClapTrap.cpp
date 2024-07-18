@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:30:08 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/03 16:44:46 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:41:56 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 void	ClapTrap::beRepaired(ClapTrap &clap, unsigned int amount) {
 	if (unavailable(clap))
 		return ;
-	beRepaired(amount);
 	clap.hitPoint += amount;
 	clap.energyPoint--;
+	beRepaired(amount);
 }
 
 bool	ClapTrap::unavailable(ClapTrap &clap) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:53:13 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 15:43:13 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 10:00:36 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ void Cat::makeSound() const {
 
 std::string Cat::getType() const {
 	return (this->_type);
+}
+
+std::string *Cat::getBrain() const {
+    return this->_brain->getIdea();
 }

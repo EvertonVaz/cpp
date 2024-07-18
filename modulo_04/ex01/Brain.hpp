@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <etovaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 13:54:22 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/14 14:02:38 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/18 09:55:52 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Brain {
 		Brain(Brain const &copy);
 		Brain &operator=(Brain const &copy);
 		~Brain();
+		std::string *getIdea() const;
 };
 
 #endif
