@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 16:00:25 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/19 15:54:21 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:09:45 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class Form;
 class Form {
 	private:
 		const std::string _name;
-		bool _signed;
 		const int _gradeToSign;
 		const int _gradeToExec;
+		bool _signed;
 
 	public:
 		Form();

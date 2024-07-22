@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:30:03 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/22 16:32:55 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:36:11 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "class/RobotomyRequestForm.hpp"
 #include "class/ShrubberyCreationForm.hpp"
 #include "class/Bureaucrat.hpp"
+#include "class/Intern.hpp"
 #include "../colors.hpp"
 
 int main() {
@@ -49,7 +50,7 @@ int main() {
 		std::cerr << e.what() << std::endl;
 	}
 
-    try {
+   try {
 		Bureaucrat b1("Peter", 2);
 		Bureaucrat b2("Parker", 25);
 		PresidentialPardonForm f1("Presidential");
@@ -71,5 +72,26 @@ int main() {
 	} catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
+
+	{
+		std::cout << "\n\nIntern test\n\n";
+		AForm* rrf[5];
+		try {
+			Intern someRandomIntern;
+			Bureaucrat b1("Miles Morales", 2);
+
+			rrf[0] = someRandomIntern.makeForm("robotomy request", "robotomy");
+			b1.signForm(*rrf[0]);
+			rrf[0]->execute(b1);
+			rrf[1] = someRandomIntern.makeForm("presidential pardon", "presidential");
+			rrf[2] = someRandomIntern.makeForm("shrubbery creation", "shrubbery");
+			rrf[3] = someRandomIntern.makeForm("Dont find", "error");
+		} catch (const std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+		for (int i = 0; i < 3; i++)
+			delete rrf[i];
+	}
+
     return 0;
 }

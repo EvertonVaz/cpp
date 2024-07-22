@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:18:45 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/18 14:40:57 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:31:49 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "class/Bureaucrat.hpp"
 #include "../colors.hpp"
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {}

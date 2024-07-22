@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egeraldo <egeraldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 14:18:45 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/19 16:25:46 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:33:50 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void Bureaucrat::decrementGrade() {
 void Bureaucrat::signForm(Form &form) const {
     try {
         form.beSign(*this);
-        std::cout << GREEN << _name << " signed " << form.getName() << END << std::endl;
+        std::cout << BOLD_YELLOW << _name << " signed " << form.getName() << END << std::endl;
     } catch (const std::exception &e) {
         std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
