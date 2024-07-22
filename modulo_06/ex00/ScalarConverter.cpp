@@ -6,13 +6,13 @@
 /*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 09:15:52 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/21 20:52:50 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/21 23:20:13 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <sstream>
 #include <cstdlib>
+#include <iomanip>
 #include <limits>
 #include <cmath>
 
@@ -51,43 +51,41 @@ void ScalarConverter::converterToInt(std::string str) {
 	}
 }
 
-void ScalarConverter::converterToFloat(std::string str) {
-	size_t dotPsicion = str.find(".");
-	bool zero = false;
-	if (str[dotPsicion + 1] == '0' || str[dotPsicion + 1] == 'f')
-		zero = true;
-	try {
-		float f = std::strtof(str.c_str(), NULL);
+int	countAfterDot(std::string str) {
+	if (str.find('f') != std::string::npos)
+		return (str.size() - str.find('.') - 2);
+	return (str.size() - str.find('.') - 1);
+}
 
-		if (f < std::numeric_limits<float>::min() || f > std::numeric_limits<float>::max())
-			throw std::invalid_argument("impossible");
-		if (std::isnan(f) || std::isinf(f))
-			throw std::invalid_argument("impossible");
-		if (zero)
-			std::cout << "float: " << static_cast<float>(f) << ".0f" << std::endl;
-		else
-			std::cout << "float: " << static_cast<float>(f) << "f" << std::endl;
-	} catch (std::exception &e) {
-		std::cout << "float: " << e.what() << std::endl;
-	}
+void ScalarConverter::converterToFloat(std::string str) {
+    try {
+		int precision = countAfterDot(str);
+        float f = std::strtof(str.c_str(), NULL);
+
+        if (f < -std::numeric_limits<float>::max() || f > std::numeric_limits<float>::max())
+            throw std::invalid_argument("impossible");
+        if (std::isnan(f) || std::isinf(f))
+            throw std::invalid_argument("nanf");
+
+        std::cout << "float: ";
+        std::cout << std::fixed << std::setprecision(precision) << f << "f" << std::endl;
+    } catch (std::exception &e) {
+        std::cout << "float: " << e.what() << std::endl;
+    }
 }
 
 void ScalarConverter::converterToDouble(std::string str) {
-	size_t dotPsicion = str.find(".");
-	bool zero = false;
-	if (str[dotPsicion + 1] == '0' || str[dotPsicion + 1] == 'f')
-		zero = true;
 	try {
+		int precision = countAfterDot(str);
 		double d = std::strtod(str.c_str(), NULL);
 
-		if (d < std::numeric_limits<double>::min() || d > std::numeric_limits<double>::max())
+		if (d < -std::numeric_limits<double>::max() || d > std::numeric_limits<double>::max())
 			throw std::invalid_argument("impossible");
 		if (std::isnan(d) || std::isinf(d))
-			throw std::invalid_argument("impossible");
-		if (zero)
-			std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
-		else
-			std::cout << "double: " << static_cast<double>(d) << std::endl;
+			throw std::invalid_argument("nan");
+
+		std::cout << "double: ";
+		std::cout << std::fixed << std::setprecision(precision)<< static_cast<double>(d) << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "double: " << e.what() << std::endl;
 	}
