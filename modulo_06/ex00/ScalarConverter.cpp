@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 09:15:52 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/21 23:20:13 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/22 17:13:26 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void ScalarConverter::converterToInt(std::string str) {
 }
 
 int	countAfterDot(std::string str) {
+
 	if (str.find('f') != std::string::npos)
 		return (str.size() - str.find('.') - 2);
 	return (str.size() - str.find('.') - 1);
@@ -60,6 +61,7 @@ int	countAfterDot(std::string str) {
 void ScalarConverter::converterToFloat(std::string str) {
     try {
 		int precision = countAfterDot(str);
+		precision = (precision == 0) ? 1 : precision;
         float f = std::strtof(str.c_str(), NULL);
 
         if (f < -std::numeric_limits<float>::max() || f > std::numeric_limits<float>::max())
@@ -77,6 +79,7 @@ void ScalarConverter::converterToFloat(std::string str) {
 void ScalarConverter::converterToDouble(std::string str) {
 	try {
 		int precision = countAfterDot(str);
+		precision = (precision == 0) ? 1 : precision;
 		double d = std::strtod(str.c_str(), NULL);
 
 		if (d < -std::numeric_limits<double>::max() || d > std::numeric_limits<double>::max())
