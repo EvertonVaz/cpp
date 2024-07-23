@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 09:15:52 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/22 17:13:26 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:30:27 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ void ScalarConverter::converterToInt(std::string str) {
 	}
 }
 
-int	countAfterDot(std::string str) {
-
-	if (str.find('f') != std::string::npos)
-		return (str.size() - str.find('.') - 2);
-	return (str.size() - str.find('.') - 1);
+int	countPrecision(std::string str) {
+	if (str[str.find('.') + 1] == 'f')
+		return (1);
+	bool hasF = str.find('f') != std::string::npos;
+	int precision = str.size() - str.find('.') - (hasF ? 2 : 1);
+	return (precision);
 }
 
 void ScalarConverter::converterToFloat(std::string str) {
     try {
-		int precision = countAfterDot(str);
-		precision = (precision == 0) ? 1 : precision;
+		int precision = countPrecision(str);
         float f = std::strtof(str.c_str(), NULL);
 
         if (f < -std::numeric_limits<float>::max() || f > std::numeric_limits<float>::max())
@@ -70,7 +70,8 @@ void ScalarConverter::converterToFloat(std::string str) {
             throw std::invalid_argument("nanf");
 
         std::cout << "float: ";
-        std::cout << std::fixed << std::setprecision(precision) << f << "f" << std::endl;
+        std::cout << std::fixed << std::setprecision(precision);
+		std::cout << static_cast<float>(f) << "f" << std::endl;
     } catch (std::exception &e) {
         std::cout << "float: " << e.what() << std::endl;
     }
@@ -78,8 +79,7 @@ void ScalarConverter::converterToFloat(std::string str) {
 
 void ScalarConverter::converterToDouble(std::string str) {
 	try {
-		int precision = countAfterDot(str);
-		precision = (precision == 0) ? 1 : precision;
+		int precision = countPrecision(str);
 		double d = std::strtod(str.c_str(), NULL);
 
 		if (d < -std::numeric_limits<double>::max() || d > std::numeric_limits<double>::max())
@@ -88,7 +88,8 @@ void ScalarConverter::converterToDouble(std::string str) {
 			throw std::invalid_argument("nan");
 
 		std::cout << "double: ";
-		std::cout << std::fixed << std::setprecision(precision)<< static_cast<double>(d) << std::endl;
+		std::cout << std::fixed << std::setprecision(precision);
+		std::cout << static_cast<double>(d) << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "double: " << e.what() << std::endl;
 	}
