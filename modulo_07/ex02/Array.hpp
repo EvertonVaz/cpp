@@ -6,12 +6,15 @@
 /*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 14:38:07 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/23 14:44:30 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/24 11:37:11 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <cstddef>
 #include <stdexcept>
 
@@ -32,7 +35,7 @@ private:
 
 		~Array() {
 			if (this->_array)
-			delete[] _array;
+				delete[] _array;
 		}
 
 		Array &operator=(const Array &src) {
