@@ -6,7 +6,7 @@
 /*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 08:59:32 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/30 12:51:03 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/30 13:22:55 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include "../colors.hpp"
 
 BitcoinExchange::BitcoinExchange() {
@@ -69,12 +70,12 @@ double BitcoinExchange::getExchangeRates(const std::string &date) const {
 	return it->second;
 }
 
-bool isInvalidDate(const std::string &date) {
+bool isValidDate(const std::string &date) {
 	std::string error = "bad input => ";
 
-	if (date == "date ")
+	if (date == "date")
 		return (false);
-	if (date.empty() || date[0] == ' ')
+	if (date.empty())
 		throw std::runtime_error("empty date.");
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		throw std::runtime_error(error + date);
@@ -84,7 +85,7 @@ bool isInvalidDate(const std::string &date) {
 		throw std::runtime_error(error + date);
 	if (date.substr(8, 2) < "01" || date.substr(8, 2) > "31")
 		throw std::runtime_error(error + date);
-	return false;
+	return true;
 }
 
 bool isInvalidValue(double value) {
@@ -95,11 +96,17 @@ bool isInvalidValue(double value) {
 	return false;
 }
 
+void remove_spaces(std::string &date) {
+	std::string::iterator end_pos;
+
+	end_pos = std::remove(date.begin(), date.end(), ' ');
+	date.erase(end_pos, date.end());
+}
+
 void BitcoinExchange::printData(std::string pathInputFile) const {
 	std::ifstream file(pathInputFile.c_str());
-	if (!file.is_open()) {
+	if (!file.is_open())
 		throw std::runtime_error("Error: could not open file ");
-	}
 
 	std::string line;
 	while (std::getline(file, line)) {
@@ -108,16 +115,15 @@ void BitcoinExchange::printData(std::string pathInputFile) const {
 		double value;
 
 		try {
-			if (getline(dataStr, date, '|') && std::isdigit(date[0])) {
-				date = date.substr(0, 10);
-				if (isInvalidDate(date)) throw ;
+			getline(dataStr, date, '|');
+			remove_spaces(date);
+			if (isValidDate(date)) {
 				if (!(dataStr >> value))
 					throw std::runtime_error("bad input => " + line);
 				if (isInvalidValue(value)) throw ;
 				double rate = getExchangeRates(date);
 				std::cout << date << " => " << rate * value << std::endl;
 			}
-			else if (isInvalidDate(date)) throw ;
 		} catch (const std::exception &e) {
 			std::cerr << "Error: " << RED << e.what() << END << std::endl;
 		}
