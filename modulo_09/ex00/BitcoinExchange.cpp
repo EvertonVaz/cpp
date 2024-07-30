@@ -6,7 +6,7 @@
 /*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 08:59:32 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/30 11:03:29 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/30 12:51:03 by etovaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include "../colors.hpp"
 
 BitcoinExchange::BitcoinExchange() {
 	loadDataBase("data.csv");
@@ -61,14 +62,20 @@ double BitcoinExchange::getExchangeRates(const std::string &date) const {
 
 	it = _exchangeRates.lower_bound(date);
 	if (it == _exchangeRates.begin()) {
-		throw std::runtime_error("Error: date not found ");
+		throw std::runtime_error("date not found ");
 	}
+
 	--it;
 	return it->second;
 }
 
 bool isInvalidDate(const std::string &date) {
 	std::string error = "bad input => ";
+
+	if (date == "date ")
+		return (false);
+	if (date.empty() || date[0] == ' ')
+		throw std::runtime_error("empty date.");
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		throw std::runtime_error(error + date);
 	if (date.substr(0, 4) < "1900" || date.substr(0, 4) > "2024")
@@ -83,7 +90,7 @@ bool isInvalidDate(const std::string &date) {
 bool isInvalidValue(double value) {
 	if (value < 0)
 		throw std::runtime_error("not a positive number.");
-	if (static_cast<double>(value) > std::numeric_limits<int>::max())
+	if (value > std::numeric_limits<int>::max())
 		throw std::runtime_error("too larger a number.");
 	return false;
 }
@@ -101,16 +108,18 @@ void BitcoinExchange::printData(std::string pathInputFile) const {
 		double value;
 
 		try {
-			if (std::isdigit(dataStr.peek()) && getline(dataStr, date, '|')) {
+			if (getline(dataStr, date, '|') && std::isdigit(date[0])) {
 				date = date.substr(0, 10);
 				if (isInvalidDate(date)) throw ;
-				dataStr >> value;
+				if (!(dataStr >> value))
+					throw std::runtime_error("bad input => " + line);
 				if (isInvalidValue(value)) throw ;
 				double rate = getExchangeRates(date);
 				std::cout << date << " => " << rate * value << std::endl;
 			}
+			else if (isInvalidDate(date)) throw ;
 		} catch (const std::exception &e) {
-			std::cerr << "Error: " << e.what() << std::endl;
+			std::cerr << "Error: " << RED << e.what() << END << std::endl;
 		}
 	}
 }
