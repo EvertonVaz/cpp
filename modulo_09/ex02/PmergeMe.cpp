@@ -6,7 +6,7 @@
 /*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 18:11:42 by etovaz            #+#    #+#             */
-/*   Updated: 2024/08/01 11:49:03 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:45:51 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void PmergeMe::process(int argc, char **argv) {
     printPhase(vec, "Before: ");
     double timeVec = getTime(vec);
     double timeDeq = getTime(deq);
-	printPhase(vec, "After: ");
-	showTime(vec, timeVec, "vector");
-	showTime(deq, timeDeq, "deque");
+    printPhase(vec, "After: ");
+    showTime(vec, timeVec, "vector");
+    showTime(deq, timeDeq, "deque");
 }
