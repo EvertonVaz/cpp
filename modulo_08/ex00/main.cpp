@@ -6,13 +6,14 @@
 /*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:37:05 by egeraldo          #+#    #+#             */
-/*   Updated: 2024/07/24 14:13:44 by egeraldo         ###   ########.fr       */
+/*   Updated: 2024/07/31 10:50:38 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <iostream>
 #include <vector>
+
 
 int main(void) {
 	std::vector<int> vec;

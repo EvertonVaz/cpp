@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 08:59:32 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/30 13:22:55 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/31 15:24:40 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool isValidDate(const std::string &date) {
 bool isInvalidValue(double value) {
 	if (value < 0)
 		throw std::runtime_error("not a positive number.");
-	if (value > std::numeric_limits<int>::max())
+	if (value > 1000)
 		throw std::runtime_error("too larger a number.");
 	return false;
 }

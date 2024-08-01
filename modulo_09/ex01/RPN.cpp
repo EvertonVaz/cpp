@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:30:16 by etovaz            #+#    #+#             */
-/*   Updated: 2024/07/30 17:22:35 by etovaz           ###   ########.fr       */
+/*   Updated: 2024/07/31 15:38:55 by egeraldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ RPN &RPN::operator=(const RPN &rpn) {
 	return *this;
 }
 
-bool RPN::_isOperator(const std::string &token) const {
-	return token == "+" || token == "-" || token == "*" || token == "/";
-}
-
 int RPN::_applyOperator(const std::string &op, int a, int b) const {
 	if (op == "+") return a + b;
 	if (op == "-") return a - b;
@@ -53,6 +49,10 @@ int RPN::_getTop(void) {
 	return top;
 }
 
+bool isOperator(const std::string &token) {
+	return token == "+" || token == "-" || token == "*" || token == "/";
+}
+
 int RPN::evaluate(const std::string &expression) {
 	std::istringstream iss(expression);
 	std::string token;
@@ -62,7 +62,7 @@ int RPN::evaluate(const std::string &expression) {
 			_stack.push(std::atoi(token.c_str()));
 			continue;
 		}
-		if (_isOperator(token)) {
+		if (isOperator(token)) {
 			if (_stack.size() < 2)
 				throw std::invalid_argument("Invalid expression");
 			int b = _getTop();

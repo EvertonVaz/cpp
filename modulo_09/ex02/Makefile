@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etovaz <egeraldo@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: egeraldo <egeraldo@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 14:23:20 by egeraldo          #+#    #+#              #
-#    Updated: 2024/07/30 18:21:08 by etovaz           ###   ########.fr        #
+#    Updated: 2024/08/01 11:47:18 by egeraldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
